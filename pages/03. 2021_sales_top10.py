@@ -5,19 +5,12 @@ import streamlit as st
 import plotly.graph_objects as go
 import common
 
-# Streamlit File *.py
-import platform
-from matplotlib import font_manager, rc
-plt.rcParams['axes.unicode_minus'] = False
-if platform.system() == 'Window':
-    rc('font', family='NanumGothic')
-
-# # 폰트 경로 설정
-# font_path = '/usr/share/fonts/truetype/nanum/NanumGothic.ttf'
-# # 폰트 이름 얻어오기
-# font_name = fm.FontProperties(fname=font_path).get_name()
-# # 한글 폰트 설정
-# plt.rcParams['font.family'] = 'NanumGothic'
+# 폰트 경로 설정
+font_path = 'C:\Windows\Fonts\MalgunGothic.ttf'
+# 폰트 이름 얻어오기
+font_name = fm.FontProperties(fname=font_path).get_name()
+# matplotlib의 폰트 설정
+plt.rcParams['font.family'] = font_name
 
 common.page_config()
 
