@@ -5,10 +5,12 @@ import streamlit as st
 import plotly.graph_objects as go
 import common
 
-sudo apt-get install fonts-nanum*
-import matplotlib 
-matplotlib.font_manager._rebuild()
-sudo rm -rf ~/.cache/
+# Streamlit File *.py
+import platform
+from matplotlib import font_manager, rc
+plt.rcParams['axes.unicode_minus'] = False
+if platform.system() == 'Window':
+    rc('font', family='NanumGothic')
 
 # # 폰트 경로 설정
 # font_path = '/usr/share/fonts/truetype/nanum/NanumGothic.ttf'
