@@ -6,12 +6,9 @@ import streamlit as st
 import plotly.graph_objects as go
 import common
 
-# 폰트 경로 설정
-font_path = 'C:\Windows\Fonts\MalgunGothic.ttf'
-# 폰트 이름 얻어오기
-font_name = fm.FontProperties(fname=font_path).get_name()
-# matplotlib의 폰트 설정
-plt.rcParams['font.family'] = font_name
+plt.rc('font', family='NanumGothic')
+plt.rcParams['font.family']
+%matplotlib inline
 
 common.page_config()
 
