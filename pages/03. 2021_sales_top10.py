@@ -3,6 +3,7 @@ import streamlit as st
 import plotly.graph_objects as go
 import common
 
+
 common.page_config()
 
 st.title("2021 Top 10")
