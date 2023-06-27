@@ -5,6 +5,10 @@ import streamlit as st
 import plotly.graph_objects as go
 import common
 
+# 폰트 경로 설정
+font_path = '/usr/share/fonts/truetype/nanum/NanumGothic.ttf'
+# 폰트 이름 얻어오기
+font_name = fm.FontProperties(fname=font_path).get_name()
 # 한글 폰트 설정
 plt.rcParams['font.family'] = 'NanumGothic'
 
