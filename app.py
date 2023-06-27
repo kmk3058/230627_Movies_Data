@@ -28,7 +28,7 @@ if st.button("다음 페이지로"):
     # Store the selected year in session state
     st.session_state['selected_year'] = year
     # Redirect to the next page
-    st.experimental_set_query_params(page=next_page)
+    st.experimental_redirect(next_page)
 
 # Next page
 if 'selected_year_data' in st.session_state:
