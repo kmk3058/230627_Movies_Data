@@ -2,7 +2,6 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 
-@st.cache_data
 def get_2022():
     data_2022 = pd.read_csv("./kobis_data_2021.csv")
     return data_2022
