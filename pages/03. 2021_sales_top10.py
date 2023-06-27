@@ -35,7 +35,7 @@ with tab1:
 
 with tab2:
     # Select the top 10 movies by audience count
-    audience_top10 = data[['영화명', '관객수']].sort_values(by='관객수', ascending=False).head(10)
+    audience_top10 = df[['영화명', '관객수']].sort_values(by='관객수', ascending=False).head(10)
 
     # Create the bar plot
     fig, ax = plt.subplots(figsize=(10, 6))
