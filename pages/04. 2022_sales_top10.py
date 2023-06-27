@@ -16,9 +16,9 @@ import common
 
 common.page_config()
 
-st.title("2021년 박스오피스 Top 10")
+st.title("2022년 박스오피스 Top 10")
 
-df = common.get_2021()
+df = common.get_2022()
 
 # genre_counts = df['Genre'].value_counts().sort_values(ascending=False)
 
@@ -34,7 +34,7 @@ with tab1:
     ax.yaxis.set_major_formatter(ticker.FuncFormatter(lambda x, pos: f'{x/1e8:.0f}억 원'))
     # x축 눈금 회전
     ax.set_xticklabels(ax.get_xticklabels(), rotation=45, ha='right')
-    plt.title('2021년 매출액 top 10', fontsize=15)
+    plt.title('2022년 매출액 top 10', fontsize=15)
     plt.xlabel('영화명', fontsize=15)
     plt.ylabel('매출액', fontsize=15)
     st.pyplot(fig)
@@ -50,7 +50,7 @@ with tab2:
     # Customize the plot
     ax.yaxis.set_major_formatter(ticker.FuncFormatter(lambda x, pos: f'{x/1e4:.0f}만 명'))
     ax.set_xticklabels(ax.get_xticklabels(), rotation=45, ha='right')
-    plt.title('2021년 관객수 top 10', fontsize=15)
+    plt.title('2022년 관객수 top 10', fontsize=15)
     plt.xlabel('영화명', fontsize=15)
     plt.ylabel('관객수', fontsize=15)
 
