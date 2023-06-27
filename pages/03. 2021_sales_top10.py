@@ -5,6 +5,8 @@ import streamlit as st
 import plotly.graph_objects as go
 import common
 
+# 한글 폰트 설정
+plt.rcParams['font.family'] = 'NanumGothic'
 
 common.page_config()
 
