@@ -8,7 +8,7 @@ import common
 
 plt.rc('font', family='NanumGothic')
 plt.rcParams['font.family']
-%matplotlib inline
+% matplotlib inline
 
 common.page_config()
 
