@@ -1,8 +1,4 @@
-import matplotlib.pyplot as plt
-import matplotlib.ticker as ticker
-import seaborn as sns
 import streamlit as st
-import plotly.express as px
 import common
 
 common.page_config()
@@ -16,8 +12,10 @@ year = st.selectbox("년도 선택", ['2021년', '2022년'])
 
 if year == '2021년':
     df = common.get_2021()  # Get 2021 data
+    next_page = 'kmk3058/230627_movie/pages/03. 2021_sales_top10.py'
 else:
     df = common.get_2022()  # Get 2022 data
+    next_page = 'kmk3058/230627_movie/pages/04. 2022_sales_top10.py'
 
 # Show the selected year's data
 st.write(f"{year} 데이터:")
@@ -36,70 +34,8 @@ if st.button("다음 페이지로"):
 if 'selected_year_data' in st.session_state:
     selected_year_data = st.session_state['selected_year_data']
     selected_year = st.session_state['selected_year']
-
+    
     if selected_year == '2021년':
-        st.title("2021년 박스오피스 Top 10")
-
-        # Define custom colors
-        custom_colors = ['#FF6F61', '#6B5B95', '#88B04B', '#F7CAC9', '#92A8D1', '#955251', '#B565A7', '#009B77', '#DD4124', '#D65076']
-
-        tab1, tab2 = st.tabs(["Sales", "Numbers"])
-
-        with tab1:
-            # Select the top 10 movies by revenue
-            sales_top10 = selected_year_data[['영화명', '매출액']].sort_values(by='매출액', ascending=False).head(10)
-
-            # Create the bar plot using Plotly Express
-            fig = px.bar(sales_top10, x='영화명', y='매출액', labels={'영화명': '영화명', '매출액': '매출액'}, color='영화명', color_discrete_sequence=custom_colors)
-            fig.update_yaxes(tickformat="~s", ticksuffix="원")
-            fig.update_layout(title_text='2021년 매출액 top 10')
-
-            # Display the plot using Streamlit
-            st.plotly_chart(fig)
-
-        with tab2:
-            # Select the top 10 movies by audience count
-            audience_top10 = selected_year_data[['영화명', '관객수']].sort_values(by='관객수', ascending=False).head(10)
-
-            # Create the bar plot using Plotly Express
-            fig = px.bar(audience_top10, x='영화명', y='관객수', labels={'영화명': '영화명', '관객수': '관객수'}, color='영화명', color_discrete_sequence=custom_colors)
-            fig.update_yaxes(tickformat="~s", ticksuffix="명")
-            fig.update_layout(title_text='2021년 관객수 top 10')
-
-            # Display the plot using Streamlit
-            st.plotly_chart(fig)
-
+        st.experimental_reroute(next_page)
     else:
-        st.title("2022년 박스오피스 Top 10")
-
-        # Define custom colors
-        custom_colors = ['#FF6F61', '#6B5B95', '#88B04B', '#F7CAC9', '#92A8D1', '#955251', '#B565A7', '#009B77', '#DD4124', '#D65076']
-
-        tab1, tab2 = st.tabs(["Sales", "Numbers"])
-
-        with tab1:
-            # Select the top 10 movies by revenue
-            sales_top10 = selected_year_data[['영화명', '매출액']].sort_values(by='매출액', ascending=False).head(10)
-
-            # Create the bar plot using Plotly Express
-            fig = px.bar(sales_top10, x='영화명', y='매출액', labels={'영화명': '영화명', '매출액': '매출액'}, color='영화명', color_discrete_sequence=custom_colors)
-            fig.update_yaxes(tickformat="~s", ticksuffix="원")
-            fig.update_layout(title_text='2022년 매출액 top 10')
-
-            # Display the plot using Streamlit
-            st.plotly_chart(fig)
-
-        with tab2:
-            # Select the top 10 movies by audience count
-            audience_top10 = selected_year_data[['영화명', '관객수']].sort_values(by='관객수', ascending=False).head(10)
-
-            # Create the bar plot using Plotly Express
-            fig = px.bar(audience_top10, x='영화명', y='관객수', labels={'영화명': '영화명', '관객수': '관객수'}, color='영화명', color_discrete_sequence=custom_colors)
-            fig.update_yaxes(tickformat="~s", ticksuffix="명")
-            fig.update_layout(title_text='2022년 관객수 top 10')
-
-            # Display the plot using Streamlit
-            st.plotly_chart(fig)
-
-
-# st.write("[Data](/Data)")
+        st.experimental_reroute(next_page)
