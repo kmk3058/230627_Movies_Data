@@ -1,58 +1,41 @@
 import matplotlib.pyplot as plt
 import matplotlib.ticker as ticker
-import matplotlib.font_manager as fm
 import seaborn as sns
 import streamlit as st
-import plotly.graph_objects as go
+import plotly.express as px
 import common
-
-
-# # 폰트 경로 설정
-# font_path = r'C:\Users\PC\AppData\Local\Microsoft\Windows\Fonts\NanumGothic.ttf'
-# # 폰트 이름 얻어오기
-# font_name = fm.FontProperties(fname=font_path).get_name()
-# # matplotlib의 폰트 설정
-# plt.rcParams['font.family'] = font_name
 
 common.page_config()
 
-st.title("2021년 박스오피스 Top 10")
+st.title("2022년 박스오피스 Top 10")
 
 df = common.get_2021()
 
-# genre_counts = df['Genre'].value_counts().sort_values(ascending=False)
+# Define custom colors
+custom_colors = ['#FF6F61', '#6B5B95', '#88B04B', '#F7CAC9', '#92A8D1', '#955251', '#B565A7', '#009B77', '#DD4124', '#D65076']
 
 tab1, tab2 = st.tabs(["Sales", "Numbers"])
 
 with tab1:
     # Select the top 10 movies by revenue
     sales_top10 = df[['영화명', '매출액']].sort_values(by='매출액', ascending=False).head(10)
-    # Create the bar plot
-    fig, ax = plt.subplots(figsize=(10, 6))
-    sns.barplot(data=sales_top10, x='영화명', y='매출액', ax=ax)
-    # 축의 눈금 표시 방식 조정
-    ax.yaxis.set_major_formatter(ticker.FuncFormatter(lambda x, pos: f'{x/1e8:.0f}억 원'))
-    # x축 눈금 회전
-    ax.set_xticklabels(ax.get_xticklabels(), rotation=45, ha='right')
-    plt.title('2021년 매출액 top 10', fontsize=15)
-    plt.xlabel('영화명', fontsize=15)
-    plt.ylabel('매출액', fontsize=15)
-    st.pyplot(fig)
+
+    # Create the bar plot using Plotly Express
+    fig = px.bar(sales_top10, x='영화명', y='매출액', labels={'영화명': '영화명', '매출액': '매출액'}, color='영화명', color_discrete_sequence=custom_colors)
+    fig.update_yaxes(tickformat="~s", ticksuffix="원")
+    fig.update_layout(title_text='2022년 매출액 top 10')
+
+    # Display the plot using Streamlit
+    st.plotly_chart(fig)
 
 with tab2:
     # Select the top 10 movies by audience count
     audience_top10 = df[['영화명', '관객수']].sort_values(by='관객수', ascending=False).head(10)
 
-    # Create the bar plot
-    fig, ax = plt.subplots(figsize=(10, 6))
-    sns.barplot(data=audience_top10, x='영화명', y='관객수', ax=ax)
-
-    # Customize the plot
-    ax.yaxis.set_major_formatter(ticker.FuncFormatter(lambda x, pos: f'{x/1e4:.0f}만 명'))
-    ax.set_xticklabels(ax.get_xticklabels(), rotation=45, ha='right')
-    plt.title('2021년 관객수 top 10', fontsize=15)
-    plt.xlabel('영화명', fontsize=15)
-    plt.ylabel('관객수', fontsize=15)
+    # Create the bar plot using Plotly Express
+    fig = px.bar(audience_top10, x='영화명', y='관객수', labels={'영화명': '영화명', '관객수': '관객수'}, color='영화명', color_discrete_sequence=custom_colors)
+    fig.update_yaxes(tickformat="~s", ticksuffix="명")
+    fig.update_layout(title_text='2022년 관객수 top 10')
 
     # Display the plot using Streamlit
-    st.pyplot(fig)
+    st.plotly_chart(fig)
