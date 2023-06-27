@@ -1,5 +1,5 @@
 import streamlit as st
-import commmon
+import common
 
 common.page_config()
 st.title("Data")
