@@ -8,10 +8,11 @@ import common
 #한글 폰트 적용
 import matplotlib.font_manager as fm
 
-# 한글 폰트 설정
-font_path = './NanumGothic.ttf'  # 한글 폰트 파일 경로
+# Font settings
+font_path = './NanumGothic.ttf'  # 필요한 폰트 파일의 경로로 설정해야 합니다.
 fontprop = fm.FontProperties(fname=font_path)
 plt.rc('font', family=fontprop.get_name())
+
 
 common.page_config()
 
@@ -150,12 +151,8 @@ gc_2021 = df_2021.loc[:,'대표장르'].value_counts()
 gc_2022 = df_2022.loc[:,'대표장르'].value_counts()
 tab_menus = ["2021", "2022"]
 tab5, tab6 = st.tabs(tab_menus)
-with tab5:
 
-    # 한글 폰트 설정
-    font_path = './NanumGothic.ttf'  # 한글 폰트 파일 경로
-    fontprop = fm.FontProperties(fname=font_path)
-    plt.rc('font', family=fontprop.get_name())
+with tab5:
     
     from pywaffle import Waffle
 
@@ -187,7 +184,7 @@ with tab6:
     font_path = './NanumGothic.ttf'  # 한글 폰트 파일 경로
     fontprop = fm.FontProperties(fname=font_path)
     plt.rc('font', family=fontprop.get_name())
-    
+
     from pywaffle import Waffle
 
     gc_2022_modified = {}
