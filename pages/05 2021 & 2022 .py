@@ -9,8 +9,10 @@ import common
 import matplotlib.font_manager as fm
 
 # Font settings
+
+
 font_path = './NanumGothic.ttf'  # 필요한 폰트 파일의 경로로 설정해야 합니다.
-fontprop = fm.FontProperties(fname=font_path)
+fontprop = fm.FontProperties(family='Nanum Gothic')
 plt.rc('font', family=fontprop.get_name())
 
 
