@@ -35,7 +35,7 @@ with tab1:
         title='국가별 매출 성장률',
         xaxis_tickangle=-45,
         legend_title='연도',
-        bargap=1.0  # 막대 간격 조정 (기본값은 0.2)
+        bargap=0.5  # 막대 간격 조정 (기본값은 0.2)
     )
 
     # Streamlit에서 그래프 출력
@@ -66,7 +66,7 @@ with tab2:
     title='장르별 상영수',
     xaxis_tickangle=-45,
     legend_title='연도',
-    bargap=1.0  # 막대 간격 조정 (기본값은 0.2)
+    bargap=0.5  # 막대 간격 조정 (기본값은 0.2)
     )
 
     # Streamlit에서 그래프 출력
