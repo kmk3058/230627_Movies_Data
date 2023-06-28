@@ -3,12 +3,12 @@ import common
 
 common.page_config()
 
-st.title("2021-2022년 한국 박스오피스 영화")
+st.markdown("# 2021-2022 KOREA BOX OFFICE ANALYSIS")
 st.image("img/box_office.jpg")
 st.divider()
 # 영화 산업 데이터 분석 프로젝트 소개
 st.markdown("### 🎬 프로젝트 목표")
-st.markdown("프로젝트를 통해 영화 산업의 성장과 변동 추세, 인기 장르, 국가별 시장 동향 등에 대한 인사이트 도출")
+st.markdown("영화 산업의 성장과 변동 추세, 인기 장르, 국가별 시장 동향 등에 대한 인사이트 도출")
 st.divider()
 st.markdown("### 🎬 Page 소개")
 st.markdown("#### 🎞 RAW_DATA")
