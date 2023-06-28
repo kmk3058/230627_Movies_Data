@@ -52,15 +52,15 @@ with tab1:
         tab10.image("./img/2021/10.png")
     
     elif year == '2022':
-        tab1.image("./img/2022/1.png")
-        tab2.image("./img/2022/2.png")
-        tab4.image("./img/2022/4.png")
+        tab1.image("./img/2022/1.jpg")
+        tab2.image("./img/2022/2.jpg")
+        tab4.image("./img/2022/4.jpg")
         tab5.image("./img/2022/5.jpg")
-        tab6.image("./img/2022/6.png")
-        tab7.image("./img/2022/7.png")
-        tab8.image("./img/2022/8.png")
+        tab6.image("./img/2022/6.jpg")
+        tab7.image("./img/2022/7.jpg")
+        tab8.image("./img/2022/8.jpg")
         tab9.image("./img/2022/9.jpg")
-        tab10.image("./img/2022/10.png")
+        tab10.image("./img/2022/10.jpg")
 
 
 
