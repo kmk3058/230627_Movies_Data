@@ -42,7 +42,7 @@ with tab2:
 
 
 st.divider()
-st.write("2022")
+st.write("2022년 매출액 기준 순위 포스터")
 tab_menus = ["1st", "2nd", "3rd", "4th", "5th", "6th", "7th", "8th", "9th", "10th"]
 tab1, tab2, tab3, tab4, tab5, tab6, tab7, tab8, tab9, tab10 = st.tabs(tab_menus)
 tab1.image("./img/2022/01.jpg")
