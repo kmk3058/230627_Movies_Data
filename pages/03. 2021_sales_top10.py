@@ -7,7 +7,7 @@ import common
 
 common.page_config()
 
-st.title("2022년 박스오피스 Top 10")
+st.title("2021년 박스오피스 Top 10")
 
 df = common.get_2021()
 
