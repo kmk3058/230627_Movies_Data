@@ -14,6 +14,6 @@ def get_2022():
 
 def page_config():
     st.set_page_config(
-        page_title="movie"
-        ,page_icon=":클래퍼:"
+        page_title="21/22 BoxOffice Analysis",
+        page_icon=":클래퍼:",
     )
