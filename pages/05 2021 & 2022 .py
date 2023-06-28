@@ -5,6 +5,13 @@ import streamlit as st
 import plotly.express as px
 import plotly.graph_objects as go
 import common
+#한글 폰트 적용
+import matplotlib.font_manager as fm
+
+# 한글 폰트 설정
+font_path = './NanumGothic.ttf'  # 한글 폰트 파일 경로
+fontprop = fm.FontProperties(fname=font_path)
+plt.rc('font', family=fontprop.get_name())
 
 common.page_config()
 
