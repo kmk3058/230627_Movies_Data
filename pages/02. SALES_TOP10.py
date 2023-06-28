@@ -1,6 +1,9 @@
+import matplotlib.pyplot as plt
+import matplotlib.ticker as ticker
+import seaborn as sns
 import streamlit as st
+import plotly.express as px
 import common
-
 common.page_config()
 
 # Sidebar
