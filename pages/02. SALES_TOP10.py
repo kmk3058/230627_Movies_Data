@@ -68,8 +68,9 @@ with tab2:
     fig2.update_yaxes(tickformat="~s", ticksuffix="명")
     fig2.update_layout(title_text=f'{year}년 관객수 Top 10')
 
-    # Convert the figure to HTML
-    fig2_html = fig2.to_html()
+    # Save the figure as an image
+    fig2.write_image("audience_top10.png")
 
     # Display the audience Top 10 plot using Streamlit
-    st.write(fig2_html, unsafe_allow_html=True)
+    st.image("audience_top10.png")
+
