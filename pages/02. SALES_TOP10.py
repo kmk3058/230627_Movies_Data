@@ -12,7 +12,7 @@ year = st.sidebar.radio("년도 선택", ['2021', '2022'])
 
 # Display selected year's Top 10 data and images
 st.title(f"{year}년 박스오피스 Top 10")
-df = common.get_2021() if year == '2021년' else common.get_2022()
+df = common.get_2021() if year == '2021' else common.get_2022()
 
 # Select the top 10 movies by revenue
 sales_top10 = df[['영화명', '매출액']].sort_values(by='매출액', ascending=False).head(10)
