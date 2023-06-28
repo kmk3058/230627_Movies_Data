@@ -50,4 +50,4 @@ tab_menus = ["1st", "2nd", "3rd", "4th", "5th", "6th", "7th", "8th", "9th", "10t
 # Display the images using Streamlit
 for i, movie in enumerate(sales_top10['영화명']):
     with st.sidebar.expander(tab_menus[i]):
-        st.image(f"./img/{year}/{i+1:02}.png", use_column_width=True)
+        st.image(f"./img/{year}/{i+1}.png", use_column_width=True)
