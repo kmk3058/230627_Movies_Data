@@ -9,9 +9,10 @@ st.image("img/box_office.jpg")
 
 # 영화 산업 데이터 분석 프로젝트 소개
 st.markdown("### Page 소개")
-st.markdown("RAW_DATA : 영화의 제목, 매출액, 관객수, 대표장르, 대표국적 등의 정보")
+st.markdown("#### RAW_DATA 영화의 제목, 매출액, 관객수, 대표장르, 대표국적 등의 정보")
+st.markdown("영화의 제목, 매출액, 관객수, 대표장르, 대표국적 등의 정보")
 st.markdown("TOP_10 : 2021/2022년도 각 년도 매출액과 관객수 TOP 10")
-st.markdown("2021_2022 : 2021 대비 2022년도 매출액, 관객수 변화 추이, 특정 장르/국가별 영화 관객수 ")
+st.markdown("2021_2022 : 2021 대비 2022년도 매출액, 관객수 변화 추이, 특정 장르/국가별 영화 관객수 등 ")
 
 import streamlit as st
 
