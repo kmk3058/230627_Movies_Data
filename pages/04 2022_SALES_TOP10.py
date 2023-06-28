@@ -39,3 +39,19 @@ with tab2:
 
     # Display the plot using Streamlit
     st.plotly_chart(fig)
+
+
+st.divider()
+st.write("2022")
+tab_menus = ["1st", "2nd", "3rd", "4th", "5th", "6th", "7th", "8th", "9th", "10th"]
+tab1, tab2, tab3, tab4, tab5, tab6, tab7, tab8, tab9, tab10 = st.tabs(tab_menus)
+tab1.image("./img/2022/01.jpg")
+tab2.image("./img/2022/02.jpg")
+tab3.image("./img/2022/03.jpg")
+tab4.image("./img/2022/04.jpg")
+tab5.image("./img/2022/05.jpg")
+tab6.image("./img/2022/06.jpg")
+tab7.image("./img/2022/07.jpg")
+tab8.image("./img/2022/08.jpg")
+tab9.image("./img/2022/09.jpg")
+tab10.image("./img/2022/10.jpg")
