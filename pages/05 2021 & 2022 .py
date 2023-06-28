@@ -149,68 +149,6 @@ with tab4:
     st.plotly_chart(fig)
 
 
-# gc_2021 = df_2021.loc[:,'대표장르'].value_counts()
-# gc_2022 = df_2022.loc[:,'대표장르'].value_counts()
-# tab_menus = ["2021", "2022"]
-# tab5, tab6 = st.tabs(tab_menus)
-
-# with tab5:
-    
-#     from pywaffle import Waffle
-
-#     gc_2021_modified = {}
-
-#     for key, value in gc_2021.items():
-#         gc_2021_modified[key] = value // 20
-#     fig = plt.figure(
-#         FigureClass=Waffle,
-#         plots={
-#             111: {
-#                 'values': gc_2021_modified,
-#                 'labels': ["{0} ({1})".format(n, v) for n, v in gc_2021.items()],
-#                 'legend': {'loc': 'upper left', 'bbox_to_anchor': (1, 1), 'fontsize': 8},
-#                 'title': {'label': '2021 장르 (20개당 별 하나)', 'loc': 'left', 'fontproperties' : fontprop}
-#             }
-#         },
-#         rows=15,
-#         figsize=(15, 5),
-#         font_size=15,
-#         icons ='star'
-#     )
-#     plt.show()
-#     st.pyplot(fig)
-
-# with tab6:
-
-#     # 한글 폰트 설정
-#     font_path = './NanumGothic.ttf'  # 한글 폰트 파일 경로
-#     fontprop = fm.FontProperties(fname=font_path)
-#     plt.rc('font', family=fontprop.get_name())
-
-#     from pywaffle import Waffle
-
-#     gc_2022_modified = {}
-#     for key, value in gc_2022.items():
-#         gc_2022_modified[key] = value // 20
-#     fig = plt.figure(
-#         FigureClass=Waffle,
-#         plots={
-#             111: {
-#                 'values': gc_2022_modified,
-#                 'labels': ["{0} ({1})".format(n, v) for n, v in gc_2022.items()],
-#                 'legend': {'loc': 'upper left', 'bbox_to_anchor': (1, 1), 'fontsize': 8},
-#                 'title': {'label': '2022 장르 (20개당 별 하나)', 'loc': 'left', 'fontproperties' : fontprop}
-#             }
-#         },
-#         rows=15,
-#         figsize=(15, 5),
-#         font_size=15,
-#         icons='star'
-#     )
-#     plt.show()
-#     st.pyplot(fig)
-
-
 data_2021 = common.get_2021()
 data_2022 = common.get_2022()
 top10_2021 = data_2021.head(10)
@@ -231,7 +169,7 @@ top10_2022 = data_2022.head(10)
 # plt.legend()
 # st.pyplot(plt.gcf())
 tab_names = ['매출 비교', '관객 수 비교']
-active_tab = st.sidebar.radio('선택', tab_names)
+active_tab = st.sidebar.radio('', tab_names)
 if active_tab == '매출 비교':
     top10_2021_sorted = data_2021.sort_values(by='매출액', ascending=False).head(10)
     top10_2022_sorted = data_2022.sort_values(by='매출액', ascending=False).head(10)
