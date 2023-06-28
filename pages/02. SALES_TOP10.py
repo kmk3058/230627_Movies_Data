@@ -66,7 +66,7 @@ with tab2:
     # Create the bar plot for audience Top 10 using Plotly Express
     fig2 = px.bar(audience_top10, x='영화명', y='관객수', labels={'영화명': '영화명', '관객수': '관객수'}, color='영화명', color_discrete_sequence=custom_colors)
     fig2.update_yaxes(tickformat="~s", ticksuffix="명")
-    fig2.update_layout(title_text=f'{year}년 관객수 Top 10')
+    # fig2.update_layout(title_text=f'{year}년 관객수 Top 10')
 
     # Display the audience Top 10 plot using Streamlit
     st.plotly_chart(fig2)
