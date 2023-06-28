@@ -62,13 +62,14 @@ with tab1:
         tab9.image("./img/2022/9.jpg")
         tab10.image("./img/2022/10.jpg")
 
-
-
 with tab2:
     # Create the bar plot for audience Top 10 using Plotly Express
     fig2 = px.bar(audience_top10, x='영화명', y='관객수', labels={'영화명': '영화명', '관객수': '관객수'}, color='영화명', color_discrete_sequence=custom_colors)
     fig2.update_yaxes(tickformat="~s", ticksuffix="명")
     fig2.update_layout(title_text=f'{year}년 관객수 Top 10')
 
+    # Convert the figure to HTML
+    fig2_html = fig2.to_html()
+
     # Display the audience Top 10 plot using Streamlit
-    st.plotly_chart(fig2)
+    st.write(fig2_html, unsafe_allow_html=True)
