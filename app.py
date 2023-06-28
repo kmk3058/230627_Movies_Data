@@ -3,7 +3,7 @@ import common
 
 common.page_config()
 
-st.markdown(<center>"# 21-22 KOREA BOX OFFICE"</center>)
+st.markdown("<center># 21-22 KOREA BOX OFFICE</center>")
 st.image("img/box_office.jpg")
 st.divider()
 # 영화 산업 데이터 분석 프로젝트 소개
