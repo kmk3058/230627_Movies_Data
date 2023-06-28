@@ -16,33 +16,30 @@ tab1, tab2 = st.tabs(["Country", "Genre"])
 
 with tab1:
 
-    sale_grp_2021 = df_2021.groupby('대표국적')['매출액'].sum().nlargest(5)
-    sale_grp_2022 = df_2022.groupby('대표국적')['매출액'].sum().nlargest(5)
+    sale_grp_2021 = df_2021.groupby('대표국적')['매출액'].sum().nlargest(20)
+    sale_grp_2022 = df_2022.groupby('대표국적')['매출액'].sum().nlargest(20)
 
     # 데이터프레임 생성
-    data_2021 = {
-        '국가': list(sale_grp_2021.index),
-        '매출(단위 억원)': list(sale_grp_2021.values // 100_000_000)
+    data = {
+        'Year': ['2021'] * len(sale_grp_2021) + ['2022'] * len(sale_grp_2022),
+        '국가': list(sale_grp_2021.index) + list(sale_grp_2022.index),
+        '매출(단위 억원)': list(sale_grp_2021.values // 100_000_000) + list(sale_grp_2022.values // 100_000_000)
     }
 
-    data_2022 = {
-        '국가': list(sale_grp_2022.index),
-        '매출(단위 억원)': list(sale_grp_2022.values // 100_000_000)
-    }
+    # Plotly Express를 사용하여 막대 그래프 생성
+    fig = px.bar(data_frame=data, x='국가', y='매출(단위 억원)', color='Year',
+                labels={'국가': '국가', '매출(단위 억원)': '매출(단위 억원)', 'Year': '연도'})
 
-    # 2021년 데이터 그래프 생성
-    fig_2021 = px.bar(data_frame=data_2021, x='국가', y='매출(단위 억원)',
-                    labels={'국가': '국가', '매출(단위 억원)': '매출(단위 억원)'}, color_discrete_sequence=['#FF6F61'])
+    # 그래프 레이아웃 설정
+    fig.update_layout(
+        title='국가별 매출 성장률',
+        xaxis_tickangle=-45,
+        legend_title='연도',
+        bargap=0.4  # 막대 간격 조정 (기본값은 0.2)
+    )
 
-    # 2022년 데이터 그래프 생성
-    fig_2022 = px.bar(data_frame=data_2022, x='국가', y='매출(단위 억원)',
-                    labels={'국가': '국가', '매출(단위 억원)': '매출(단위 억원)'}, color_discrete_sequence=['#6B5B95'])
-
-    # 2021년 그래프 출력
-    st.plotly_chart(fig_2021)
-
-    # 2022년 그래프 출력
-    st.plotly_chart(fig_2022)
+    # Streamlit에서 그래프 출력
+    st.plotly_chart(fig)
 
 
 with tab2: 
