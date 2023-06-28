@@ -137,3 +137,57 @@ with tab4:
 
     # Streamlit에서 그래프 출력
     st.plotly_chart(fig)
+
+
+gc_2021 = df_2021.loc[:,'대표장르'].value_counts()
+gc_2022 = df_2022.loc[:,'대표장르'].value_counts()
+tab_menus = ["2021", "2022"]
+tab5, tab6 = st.tabs(tab_menus)
+with tab5:
+    from pywaffle import Waffle
+
+    gc_2021_modified = {}
+
+    for key, value in gc_2021.items():
+        gc_2021_modified[key] = value // 20
+    fig = plt.figure(
+        FigureClass=Waffle,
+        plots={
+            111: {
+                'values': gc_2021_modified,
+                'labels': ["{0} ({1})".format(n, v) for n, v in gc_2021.items()],
+                'legend': {'loc': 'upper left', 'bbox_to_anchor': (1, 1), 'fontsize': 8},
+                'title': {'label': '2021 장르 (20개당 별 하나)', 'loc': 'left', 'fontproperties' : fontprop}
+            }
+        },
+        rows=15,
+        figsize=(15, 5),
+        font_size=15,
+        icons ='star'
+    )
+    plt.show()
+    st.pyplot(fig)
+
+with tab6:
+    from pywaffle import Waffle
+
+    gc_2022_modified = {}
+    for key, value in gc_2022.items():
+        gc_2022_modified[key] = value // 20
+    fig = plt.figure(
+        FigureClass=Waffle,
+        plots={
+            111: {
+                'values': gc_2022_modified,
+                'labels': ["{0} ({1})".format(n, v) for n, v in gc_2022.items()],
+                'legend': {'loc': 'upper left', 'bbox_to_anchor': (1, 1), 'fontsize': 8},
+                'title': {'label': '2022 장르 (20개당 별 하나)', 'loc': 'left', 'fontproperties' : fontprop}
+            }
+        },
+        rows=15,
+        figsize=(15, 5),
+        font_size=15,
+        icons='star'
+    )
+    plt.show()
+    st.pyplot(fig)
