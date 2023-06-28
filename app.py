@@ -12,17 +12,17 @@ year = st.selectbox("년도 선택", ['2021년', '2022년'])
 
 if year == '2021년':
     df = common.get_2021()  # Get 2021 data
-    next_page = 'kmk3058/230627_movie/pages/03. 2021_sales_top10.py'
+    next_page = '../pages/03. 2021_sales_top10.py'
 else:
     df = common.get_2022()  # Get 2022 data
-    next_page = 'kmk3058/230627_movie/pages/04. 2022_sales_top10.py'
+    next_page = '../pages/04. 2022_sales_top10.py'
 
 # Show the selected year's data
 st.write(f"{year} 데이터:")
 st.write(df)
 
 # Visualization on the next page
-if st.button("다음 페이지로"):
+if st.button("해당 년도 페이지로"):
     # Store the selected year's data in session state
     st.session_state['selected_year_data'] = df
     # Store the selected year in session state
