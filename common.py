@@ -15,4 +15,5 @@ def get_2022():
 def page_config():
     st.set_page_config(
         page_title="movie"
+        ,page_icon=":클래퍼:"
     )
