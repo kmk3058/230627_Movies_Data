@@ -34,6 +34,21 @@ with tab1:
     # Display the sales Top 10 plot using Streamlit
     st.plotly_chart(fig1)
 
+    st.divider()
+    st.write("{year}년 매출액 기준 순위 포스터")
+    tab_menus = ["1st", "2nd", "3rd", "4th", "5th", "6th", "7th", "8th", "9th", "10th"]
+    tab1, tab2, tab3, tab4, tab5, tab6, tab7, tab8, tab9, tab10 = st.tabs(tab_menus)
+    tab1.image("./img/{year}/1.png")
+    tab2.image("./img/{year}/2.png")
+    tab3.image("./img/{year}/3.png")
+    tab4.image("./img/{year}/4.png")
+    tab5.image("./img/{year}/5.jpg")
+    tab6.image("./img/{year}/6.png")
+    tab7.image("./img/{year}/7.png")
+    tab8.image("./img/{year}/8.png")
+    tab9.image("./img/{year}/9.jpg")
+    tab10.image("./img/{year}/10.png")
+
 with tab2:
     # Create the bar plot for audience Top 10 using Plotly Express
     fig2 = px.bar(audience_top10, x='영화명', y='관객수', labels={'영화명': '영화명', '관객수': '관객수'}, color='영화명', color_discrete_sequence=custom_colors)
@@ -42,12 +57,3 @@ with tab2:
 
     # Display the audience Top 10 plot using Streamlit
     st.plotly_chart(fig2)
-
-st.divider()
-st.write(f"{year}년 매출액 기준 순위 포스터")
-tab_menus = ["1st", "2nd", "3rd", "4th", "5th", "6th", "7th", "8th", "9th", "10th"]
-
-# Display the images using Streamlit
-for i, movie in enumerate(sales_top10['영화명']):
-    with st.sidebar.expander(tab_menus[i]):
-        st.image(f"./img/{year}/{i+1}.png", use_column_width=True)
