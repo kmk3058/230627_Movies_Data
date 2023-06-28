@@ -78,20 +78,62 @@ tab3, tab4= st.tabs(["pie1", "pie2"])
 
 with tab3:
 
-    # 국가별 10만 이상의 관객수
-    # top_2021 = df_2021[df_2021['관객수'] > 100000]
     grp_audi_2021 = df_2021.groupby('대표국적')['관객수'].sum()
-    data = [go.Pie(labels=grp_audi_2021.index, values=grp_audi_2021.values)]
-    layout = go.Layout(title='2021년 국가별 영화 관객수')
+
+    # 전체 관객수 대비 비중 계산
+    total_audi_2021 = grp_audi_2021.sum()
+    grp_audi_2021['비중'] = grp_audi_2021 / total_audi_2021
+
+    # 1% 미만 비중을 가지는 국가들을 기타로 묶기
+    threshold = 0.01
+    other_audi_2021 = grp_audi_2021[grp_audi_2021['비중'] < threshold]
+    other_audi_2021_sum = other_audi_2021.sum()
+    grp_audi_2021 = grp_audi_2021[grp_audi_2021['비중'] >= threshold]
+    grp_audi_2021.loc['기타'] = other_audi_2021_sum
+
+    # 데이터프레임 생성
+    labels = grp_audi_2021.index
+    values = grp_audi_2021['관객수']
+
+    # 파이 차트 생성
+    data = [go.Pie(labels=labels, values=values)]
+
+    # 레이아웃 설정
+    layout = go.Layout(title='2021년 국가별 영화 관객수 비중')
+
+    # 그래프 생성
     fig = go.Figure(data=data, layout=layout)
+
+    # Streamlit에서 그래프 출력
     st.plotly_chart(fig)
   
 with tab4:
 
-    # 국가별 10만 이상의 관객수
-    # top_2022 = df_2022[df_2021['관객수'] > 100000]
     grp_audi_2022 = df_2022.groupby('대표국적')['관객수'].sum()
-    data = [go.Pie(labels=grp_audi_2022.index, values=grp_audi_2022.values)]
-    layout = go.Layout(title='2022년 국가별 영화 관객수')
+
+    # 전체 관객수 대비 비중 계산
+    total_audi_2022 = grp_audi_2022.sum()
+    grp_audi_2022['비중'] = grp_audi_2022 / total_audi_2022
+
+    # 1% 미만 비중을 가지는 국가들을 기타로 묶기
+    threshold = 0.01
+    other_audi_2022 = grp_audi_2022[grp_audi_2022['비중'] < threshold]
+    other_audi_2022_sum = other_audi_2022.sum()
+    grp_audi_2022 = grp_audi_2022[grp_audi_2022['비중'] >= threshold]
+    grp_audi_2022.loc['기타'] = other_audi_2022_sum
+
+    # 데이터프레임 생성
+    labels = grp_audi_2022.index
+    values = grp_audi_2022['관객수']
+
+    # 파이 차트 생성
+    data = [go.Pie(labels=labels, values=values)]
+
+    # 레이아웃 설정
+    layout = go.Layout(title='2022년 국가별 영화 관객수 비중')
+
+    # 그래프 생성
     fig = go.Figure(data=data, layout=layout)
+
+    # Streamlit에서 그래프 출력
     st.plotly_chart(fig)
