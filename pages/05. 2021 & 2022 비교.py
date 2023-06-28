@@ -16,8 +16,8 @@ tab1, tab2 = st.tabs(["Country", "Genre"])
 
 with tab1:
 
-    sale_grp_2021 = df_2021.groupby('대표국적')['매출액'].sum().nlargest(20)
-    sale_grp_2022 = df_2022.groupby('대표국적')['매출액'].sum().nlargest(20)
+    sale_grp_2021 = df_2021.groupby('대표국적')['매출액'].sum().nlargest(5)
+    sale_grp_2022 = df_2022.groupby('대표국적')['매출액'].sum().nlargest(5)
 
     # 데이터프레임 생성
     data = {
