@@ -11,7 +11,7 @@ st.image("img/box_office.jpg")
 import streamlit as st
 
 st.sidebar.title("박스오피스 데이터")
-year = st.sidebar.radio("년도 선택", ['2021', '2022'])
+# year = st.sidebar.radio("년도 선택", ['2021', '2022'])
 
 st.title("2021-2022년 한국 박스오피스")
 
