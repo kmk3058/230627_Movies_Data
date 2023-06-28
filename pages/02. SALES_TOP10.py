@@ -8,7 +8,7 @@ common.page_config()
 
 # Sidebar
 st.sidebar.title("박스오피스 Top 10")
-year = st.sidebar.radio("년도 선택", ['2021년', '2022년'])
+year = st.sidebar.radio("년도 선택", ['2021', '2022'])
 
 # Display selected year's Top 10 data and images
 st.title(f"{year}년 박스오피스 Top 10")
