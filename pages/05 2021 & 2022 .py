@@ -5,16 +5,16 @@ import streamlit as st
 import plotly.express as px
 import plotly.graph_objects as go
 import common
-#한글 폰트 적용
 import matplotlib.font_manager as fm
 
-# Font settings
-
-
-font_path = './NanumGothic.ttf'  # 필요한 폰트 파일의 경로로 설정해야 합니다.
-fontprop = fm.FontProperties(family='Nanum Gothic')
-plt.rc('font', family=fontprop.get_name())
-
+# plt.rcParams["font.family"] = "NanumGothic.ttf"
+# # 폰트 경로
+font_path = './NanumGothic.ttf'
+##
+# # 폰트 로드
+font_prop = fm.FontProperties(fname=font_path)
+# # 기본 폰트 설정
+plt.rcParams['font.family'] = font_prop.get_name()
 
 common.page_config()
 
